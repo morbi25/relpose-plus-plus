@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "relpose_plus_plus"
+version = "1.0.0"
+authors = [
+  { name="Nils Morbitzer" },
+]
+description = "The SDK of the SeeingThroughFog"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: Free for non-commercial use",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "antialiased-cnns",
+    "black",
+    "dash",
+    "einops",
+    "flake8",
+    "ipdb",
+    "isort",
+    "jupyter",
+    "jupyter_dash",
+    "jupyter-resource-usage",
+    "numpy",
+    "opencv-python",
+    "pandas",
+    "plotly",
+    "scikit-image",
+    "tensorboard",
+    "tqdm",
+    "termcolor"
+]
+
+[project.urls]
+"Homepage" = "https://amyxlase.github.io/relpose-plus-plus/"
+"Bug Tracker" = "https://github.com/amyxlase/relpose-plus-plus/issues"
