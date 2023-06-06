@@ -2,7 +2,7 @@ import numpy as np
 import torch
 from tqdm.auto import tqdm
 
-from utils import generate_random_rotations, get_permutations
+from relpose.utils import generate_random_rotations, get_permutations
 
 
 def get_n_features(model, num_frames, images, crop_params=None):

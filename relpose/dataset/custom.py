@@ -9,7 +9,7 @@ from torch.utils.data import Dataset
 from torchvision import transforms
 from tqdm.auto import tqdm
 
-from utils.bbox import mask_to_bbox, square_bbox
+from relpose.utils.bbox import mask_to_bbox, square_bbox
 
 
 class CustomDataset(Dataset):

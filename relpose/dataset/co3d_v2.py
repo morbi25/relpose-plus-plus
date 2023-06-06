@@ -10,9 +10,9 @@ from pytorch3d.renderer import PerspectiveCameras
 from torch.utils.data import Dataset
 from torchvision import transforms
 
-from utils.bbox import square_bbox
-from utils.misc import get_permutations
-from utils.normalize_cameras import first_camera_transform, normalize_cameras
+from relpose.utils.bbox import square_bbox
+from relpose.utils.misc import get_permutations
+from relpose.utils.normalize_cameras import first_camera_transform, normalize_cameras
 
 CO3D_DIR = "data/co3d_v2"
 CO3D_ANNOTATION_DIR = "data/co3d_v2_annotations"

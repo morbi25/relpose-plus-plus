@@ -1,6 +1,6 @@
 import numpy as np
 
-from dataset.co3d_v2 import Co3dDataset
+from relpose.dataset.co3d_v2 import Co3dDataset
 
 
 def compute_angular_error(rotation1, rotation2):
