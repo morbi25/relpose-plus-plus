@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-from utils import generate_random_rotations, get_permutations
+from relpose.utils import generate_random_rotations, get_permutations
 
 from .encoder import GlobalFeatures
 from .regressor import TranslationRegressor
