@@ -15,7 +15,7 @@ from utils.bbox import mask_to_bbox, square_bbox
 class CustomDataset(Dataset):
     def __init__(
         self,
-        image_dir,
+        images,
         mask_dir=None,
         bboxes=None,
         mask_images=False,
@@ -24,17 +24,15 @@ class CustomDataset(Dataset):
         Dataset for custom images. If mask_dir is provided, bounding boxes are extracted
         from the masks. Otherwise, bboxes must be provided.
         """
-        self.image_dir = image_dir
+        #self.image_dir = image_dir
         self.mask_dir = mask_dir
         self.mask_images = mask_images
         self.bboxes = []
         self.images = []
 
         if mask_images:
-            for image_name, mask_name in tqdm(
-                zip(sorted(os.listdir(image_dir)), sorted(os.listdir(mask_dir)))
-            ):
-                image = Image.open(osp.join(image_dir, image_name))
+            for image_name, mask_name in tqdm(zip(sorted(images), sorted(os.listdir(mask_dir)))):
+                image = Image.open(image_name)
                 mask = Image.open(osp.join(mask_dir, mask_name)).convert("L")
                 white_image = Image.new("RGB", image.size, (255, 255, 255))
                 if mask.size != image.size:
@@ -43,8 +41,8 @@ class CustomDataset(Dataset):
                 image = Image.composite(image, white_image, mask)
                 self.images.append(image)
         else:
-            for image_path in sorted(os.listdir(image_dir)):
-                self.images.append(Image.open(osp.join(image_dir, image_path)))
+            for image_path in sorted(images):
+                self.images.append(Image.open(image_path))
         self.n = len(self.images)
         if bboxes is None:
             for mask_path in sorted(os.listdir(mask_dir))[: self.n]:
